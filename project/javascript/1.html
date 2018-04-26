@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>1</title>
+		<script>
+			document.write("<h1>我是第一个JavaScript程序</h1>")
+		    document.write("<p>这是一个段落</p>");
+		    document.write( "我是一名学生， \ 我很好")
+		    function dispDate(){
+		    	document.getElementById('demo').innerText=new Date();
+		    }
+		     
+		</script>
+		<script>
+			window.alert("Hello,everyone!")
+		</script>
+	</head>
+	<body>
+		<input type="button"   value="显示日期" onclick="dispDate()"/>
+		<div id="demo"></div>
+		<button onclick="alert('hello,the world!')">弹出信息按钮</button>
+		<div id="con">你好，我是某某某</div>
+		<script>
+			document.getElementById('con').innerHTML="Hi, my name is ..."
+			document.getElementById('con').style.color="red";
+		</script>
+		 <input id="demos" type="text"/>
+		 <button onclick="Control();">看这里</button>
+		<script>
+			function Control(){
+				var x=document.getElementById('demos').value;
+				if(x==""||isNaN(x)){
+					alert("不是数字")
+				}
+			}
+		</script>
+		<p id="text1">我是一名员工</p>
+		<button onclick="change()">改变</button>
+		<script>
+			function change(){
+				var a=document.getElementById('text1');
+				a.innerHTML="I am a worker now.";
+			}
+		</script>
+		<script>
+			a=5;
+			b=6;
+			c=a+b;
+			console.log(c);
+		</script>
+	    <p id="result"></p>
+	    <button onclick="Cal()">计算</button>
+	    <script>
+	    	function Cal(){
+	    	var y=5;
+	    	x=y+2;
+	    	document.getElementById('result').innerHTML='x='+x;	
+	    	}
+	    </script>
+	    <script>
+	    	var a=new Array();
+	    	a[0]="123";
+	    	a[1]="234";
+	    	a[2]="456";
+	    	for(var i=0;i<a.length;i++){
+	    		document.write(a[i]+"<br />");
+	    	}
+	    </script>
+	    <script>
+	    	 var a=
+	    	 {
+	    	 	age : 24
+	    	 };
+	    	 document.write(a.age)
+	    </script>
+	    <p id="conca"></p>
+	    <script>
+	    	var b={
+	    		name:"小明",
+	    		age:24,
+	    		id:345
+	    	};
+	    	document.getElementById('conca').innerHTML="我叫"+b.name+","+"我今年"+b.age+"岁,"+"我的证件号是："+b.id+"。";
+	    </script>
+	</body>
+</html>
