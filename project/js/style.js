@@ -1,3 +1,3 @@
 function f() {
-    alert("hello,the world")!
+    alert("hello,the world");
 }
