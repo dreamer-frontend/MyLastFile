@@ -6,6 +6,7 @@
     <script src="./vue/vue.js"></script>
 </head>
 <body>
+1.实现一个简单的todoList功能模块
   <div id="example">
       <input v-model="Value"/>
       <button @click="haSubmit">提交</button>
@@ -28,6 +29,99 @@
             }
         }
 
+    })
+</script>
+2.实现拆分成一个组件，使用到的是Vue.component新建一个组件（全局组件）
+<div id="example1">
+    <input v-model="Value"/>
+    <button @click="haSubmit">提交</button>
+    <ul>
+        <!--<li v-for="(item, index) of list" :key="index">{{item}}</li>-->
+        <todo-item></todo-item>
+    </ul>
+</div>
+<script>
+    Vue.component("todo-item",{
+        template: "<li>item</li>"
+    })
+    new Vue({
+        el:"#example1",
+        data:{
+            Value:"",
+            list: []
+        },
+        methods:{
+            haSubmit:function () {
+                this.list.push(this.Value)
+                // 添加完，清除值
+                this.Value=""
+            }
+        }
+
+    })
+</script>
+3.实现拆分成一个组件，使用到的是局部组件
+<div id="example2">
+    <input v-model="Value"/>
+    <button @click="haSubmits">提交</button>
+    <ul>
+       <todo-items></todo-items>
+    </ul>
+</div>
+<script>
+    var Todo_item = {
+        template:'<li>item</li>'
+    }
+    new Vue({
+        el:"#example2",
+        components:{
+            'todo-items':Todo_item
+        },
+        data:{
+            Value:"",
+            list: []
+        },
+        methods:{
+            haSubmits:function () {
+                this.list.push(this.Value)
+                // 添加完，清除值
+                this.Value=""
+            }
+        }
+
+    })
+</script>
+4.实现拆分成一个组件，实现相应的效果
+<div id="example3">
+    <input v-model="Value"/>
+    <button @click="haSubmits">提交</button>
+    <ul>
+        <!--1.传一个名为content的数值-->
+      <todo-item v-for="(item,index) of list" :key ="index" :content="item"></todo-item>
+    </ul>
+</div>
+<script>
+    Vue.component("todo-item",{
+        // 2.对方传值，我们要接收传来的值，使用到的是props属性方法,注意把一个值赋值给属性时候正确的写法
+        props:['content'],
+        // 3.通过插值来实现数值的获取
+        template: "<li>{{content}}</li>"
+    })
+    new Vue({
+        el:"#example3",
+        // 4.初始化数据
+        data:{
+            Value:"",
+            list: []
+        },
+        // 5.编写按钮的点击事件
+        methods:{
+            haSubmits:function () {
+                this.list.push(this.Value)
+                // 添加完，清除值
+                this.Value=""
+            }
+        }
     })
 </script>
 </body>
