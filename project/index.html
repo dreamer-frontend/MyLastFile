@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue入门</title>
+    <script src="./vue/vue.js"></script>
+</head>
+<body>
+1.基础vue简单案例使用：
+  <div id="root">{{msg}}</div>
+<script>
+    new Vue({
+        // 1.通过el绑定一个元素
+        el:"#root",
+        // 2.接着把我们需要的数据放到数据中，数据是data
+        data:{
+            msg:"Hello world"
+        }
+        // 3.在div盒子中调用提供的值，使用的是{{msg}}
+    })
+</script>
+2.vue挂载点(内容写在挂载点内部)，模板内容(不适用template属性)和实例应用：
+<div id="root1">
+    <h1>hello the {{msg}}</h1>
+</div>
+<script>
+    new Vue({
+        el:"#root1",
+        // 1.可以通过template来书写实例内容!
+        data:{
+            msg:"world"
+        }
+
+    })
+</script>
+3.vue挂载点，模板内容(重点)和实例应用：
+<div id="root2"></div>
+<script>
+    new Vue({
+        el:"#root2",
+        // 1.可以通过template来书写实例内容!
+        template:"<h1>hello {{msg}}</h1>",
+        data:{
+            msg:"world"
+        }
+
+    })
+</script>
+4.使用v-text显示模板内容(转义标签)
+  <div id="root3">
+    <div v-text="msg"></div>
+  </div>
+<script>
+    new Vue({
+        el:"#root3",
+        data:{
+            msg:"<h1>hello,the world</h1>"
+        }
+
+    })
+</script>
+5.使用v-html显示模板内容（未转义标签）
+<div id="root4">
+    <div v-html="msg"></div>
+</div>
+<script>
+    new Vue({
+        el:"#root4",
+        data:{
+            msg:"<h1>hello,the world</h1>"
+        }
+
+    })
+</script>
+6.vue绑定事件的实现(没有实现)
+<div id="root5">
+    <div @click="handlerClick">{{content}}</div>
+    <div @click="hand">{{contain}}</div>
+</div>
+<script>
+    new Vue({
+        el:"#root5",
+        data:{
+            content:"hello",
+            contain:"world"
+        },
+        methods:{
+            handlerClick : function () {
+                this.content="world"
+            },
+            hand:function () {
+                this.contain="hello,the world"
+            }
+        }
+
+    })
+</script>
+7.数据绑定(title提示信息)
+<div id="root6">
+    <div title="this is another world">hello the world</div>
+</div>
+<script>
+    new Vue({
+        el:"#root6",
+    })
+</script>
+8.通过data数据里面的title进行数据绑定
+<div id="root8">
+    <div  :title="title">hello the world</div>
+    <!--1.如果想改变input的输入值从而改变下面div文本的内容，使用的是v-model属性-->
+    <input v-model="cont"/>
+    <div>{{cont}}</div>
+</div>
+<script>
+    new Vue({
+        el:"#root8",
+        data:{
+            title:"this is a world",
+            cont:"hello"
+        }
+    })
+</script>
+9.通过监听事件实现姓名的输出
+<div id="first">
+    姓： <input v-model="firstName" />
+    名：<input v-model="lastName" />
+    <div>{{firstName}}{{lastName}}</div>
+</div>
+<script>
+    new Vue({
+        el:"#first",
+        data:{
+            firstName:"",
+            lastName:""
+        }
+    })
+</script>
+10.通过计算属性实现，通过在computed中实现
+<div id="second">
+    <input v-model="firstName" />
+    <input v-model="lastName"/>
+    <div>{{fullName}}</div>
+    <div>{{count}}</div>
+</div>
+<script>
+    new Vue({
+        el:"#second",
+        data:{
+            firstName:"",
+            lastName:"",
+            count:0
+        },
+        computed:{
+           fullName:function () {
+               return this.firstName+""+this.lastName
+           }
+        }
+    })
+</script>
+11.监听事件实现
+<div id="third">
+    <input v-model="firstName" />
+    <input v-model="lastName"/>
+    <div>{{fullName}}</div>
+    <div>{{count}}</div>
+</div>
+<script>
+    new Vue({
+        el:"#third",
+        data:{
+            firstName:"",
+            lastName:"",
+            count:0
+        },
+        // 1.计算属性实现
+        computed:{
+            fullName:function () {
+                return this.firstName+""+this.lastName
+            }
+        },
+        // 2.监听事件实现
+        watch:{
+            fullName:function () {
+              this.count++
+            }
+        }
+    })
+</script>
+12.点击按钮，实现内容的显示和隐藏(v-show;v-if)
+<div id="display">
+    <div v-show="show">hello the world</div>
+    <button @click="handler">Toggle</button>
+</div>
+<script>
+    new Vue({
+        el:"#display",
+        data:{
+            show:true
+        },
+        // 事件要写到methods当中
+        methods:{
+            handler:function(){
+                this.show=!this.show
+            }
+        }
+    })
+</script>
+13.v-for遍历循环使用如下：
+<div id="four">
+    <ul>
+        <li v-for="item of list">{{item}}</li>
+    </ul>
+</div>
+<script>
+    new Vue({
+        el:"#four",
+        data:{
+            show:true,
+            list:[1, 2, 3]
+        },
+
+
+    })
+</script>
+</body>
+</html>
