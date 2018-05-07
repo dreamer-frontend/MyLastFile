@@ -19,7 +19,7 @@
         // 3.在div盒子中调用提供的值，使用的是{{msg}}
     })
 </script>
-2.vue挂载点(内容写在挂载点内部)，模板内容(不适用template属性)和实例应用：
+2.vue挂载点(内容写在挂载点内部)，模板内容(不使用template属性)和实例应用：
 <div id="root1">
     <h1>hello the {{msg}}</h1>
 </div>
@@ -30,7 +30,6 @@
         data:{
             msg:"world"
         }
-
     })
 </script>
 3.vue挂载点，模板内容(重点)和实例应用：

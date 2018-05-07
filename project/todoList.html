@@ -124,5 +124,58 @@
         }
     })
 </script>
+5.子组件删除操作
+<div id="example4">
+    <input v-model="Value"/>
+    <button @click="haSubmits">提交</button>
+    <ul>
+        <!--1.传一个名为content的数值-->
+        <todo-item
+                v-for="(item,index) of list"
+                :key ="index"
+                :content="item"
+                :index="index"
+                 @delete="hDelete">
+
+        </todo-item>
+    </ul>
+</div>
+<script>
+    // 子组件
+    Vue.component("todo-item",{
+        // 2.对方传值，我们要接收传来的值，使用到的是props属性方法,注意把一个值赋值给属性时候正确的写法
+        props:['content','index'],
+        // 3.通过插值来实现数值的获取
+        template: "<li  @click='hClick'>{{content}}</li>",
+        methods:{
+            hClick:function () {
+                this.$emit('delete',this.index)
+            }
+        }
+    })
+    // 父组件
+    new Vue({
+        el:"#example4",
+        // 4.初始化数据
+        data:{
+            Value:"",
+            list: []
+        },
+        // 5.编写按钮的点击事件
+        methods:{
+            haSubmits:function () {
+                this.list.push(this.Value)
+                // 添加完，清除值
+                this.Value=""
+            },
+            // 父组件可以监听子组件的删除事件
+            hDelete:function (index) {
+                // alert(index)
+                // list 对应下标下的内容删除就好了
+                this.list.splice(index,1);
+            }
+        }
+    })
+</script>
 </body>
 </html>

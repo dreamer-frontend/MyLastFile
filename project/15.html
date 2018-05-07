@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TodoList功能开发二</title>
+    <script src="vue/vue.js"></script>
+</head>
+<body>
+    <h1>TodoList组件的拆分</h1>
+<div id="root">
+    <input v-model="inputValue"/>
+    <button @click="Submit"> 提交</button>
+    <div>
+        <ul>
+            <!--<li v-for="(item,index) of list" (item,index) of list>{{item}}</li>-->
+            <tool-item v-for="(item,index) of list" :key="index" :content="item"></tool-item>
+        </ul>
+    </div>
+</div>
+<script>
+    // 新定义一个组件
+    Vue.component('tool-item',{
+        props:['content'],
+        template:'<li @click="hand">{{content}}</li>',
+        methods:{
+            hand:function () {
+                alert(123)
+            }
+        }
+    })
+    new Vue({
+        el:"#root",
+        data:{
+            inputValue:"",
+            list:[]
+        },
+        methods:{
+            Submit:function () {
+                this.list.push(this.inputValue)
+                this.inputValue=''
+            }
+        }
+    })
+</script>
+</body>
+</html>
