@@ -2,9 +2,71 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Vue使用</title>
+    <script src="vue/vue.js"></script>
 </head>
 <body>
-    <h1>Hello,the world</h1>
+    <h1>使用v-for遍历操作Vue实现</h1>
+    <div id="example">
+        <ul>
+            <li v-for="item of list">{{item}}</li>
+        </ul>
+    </div>
+    <script>
+        new Vue({
+            el:"#example",
+            data:{
+              list:[1,2,3]
+            }来进行
+        })
+    </script>
+    <h1>v-show进行显示和隐藏</h1>
+    <div id="examples">
+        <div v-show="show">hello,the world</div>
+        <button @click="handle">Change</button>
+    </div>
+<script>
+  new Vue({
+      el:"#examples",
+      data:{
+          show:true
+      },
+      methods:{
+          handle:function () {
+             this.show=!this.show
+          }
+      }
+  })
+</script>
+    <h1>v-model获取姓名</h1>
+    <div id="next">
+        姓:<input v-model="firstName" />
+        名:<input v-model="lastName" />
+        <div>{{firstName}}{{lastName}}</div>
+        <div>{{fullName}}</div>
+        <div>{{count}}</div>
+    </div>
+    <script>
+       new Vue({
+           el:"#next",
+           data:{
+               firstName:"",
+               lastName:"",
+               count:0
+           },
+           // 通过计算获取姓名的值
+           computed:{
+               fullName:function () {
+                  return this.firstName+""+this.lastName
+               }
+           },
+           watch:{
+               // 事件的监听事件
+                fullName:function () {
+                    this.count++
+                }
+           }
+       })
+    </script>
 </body>
 </html>
