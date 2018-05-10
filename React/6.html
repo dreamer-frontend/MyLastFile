@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>React-5</title>
+    <!--引用插件-->
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+<body>
+ <div id="root"></div>
+</body>
+<script type="text/babel">
+    // 1.通过定义一个name属性来获取属性的name属性
+   function Welcome(props){
+       return <h1>{props.name}</h1>
+   }
+   // 2.声明一个常量
+   const element=<Welcome name="Hello,the world!"/>
+    // 3.编写获取标签元素和常量对应的值
+    ReactDOM.render(
+        element,
+      document.getElementById('root')
+    )
+</script>
+</html>

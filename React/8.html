@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>React-8</title>
+    <!--引用插件-->
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+<body>
+ <div id="root"></div>
+</body>
+<script type="text/babel">
+    class LoginButton extends React.Component{
+        // 注意：定义类中不一定要有构造函数方法，但是对于一个空的构造函数方法，系统默认已经添加上了
+        // 绑定点击事件方法实现
+        handleClick(){
+            console.log('this is:',this);
+        }
+        // 绑定事件调用
+        render(){
+            return (
+                <button onClick={(e)=> this.handleClick(e)}>click me</button>
+            )
+        }
+    }
+    ReactDOM.render(
+        <LoginButton/>,
+        document.getElementById('root')
+    )
+</script>
+</html>

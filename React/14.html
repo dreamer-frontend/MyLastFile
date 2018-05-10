@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>React-14（列表和键）</title>
+    <!--引用插件-->
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+<body>
+ <div id="root"></div>
+</body>
+<script type="text/babel">
+     // 遍历元素集合
+     // const numbers=[1,2,3,4,5];
+     // const doubled=numbers.map(num=>num*2);
+     // console.log(doubled);
+    const numbers=[1,2,3,4,5];
+    const listItems=numbers.map((num)=>
+        <li>{num}</li>
+    );
+    ReactDOM.render(
+        <ul>{listItems}</ul>,
+        document.getElementById('root')
+    )
+
+</script>
+</html>
