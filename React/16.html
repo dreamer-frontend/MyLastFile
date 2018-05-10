@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>React-16</title>
+    <!--引用插件，这个插件是可以使用createClass的-->
+    <script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
+    <script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
+</head>
+<body>
+ <div id="root"></div>
+</body>
+<script type="text/babel">
+    // 符合组件使用，组件一
+    var Ha=React.createClass({
+         render:function () {
+            return (
+                <div>Hello,{this.props.name}</div>
+            )
+         }
+
+    });
+    // name属性通过this.props.name来获取
+    ReactDOM.render(
+        <Ha name="the world"/>,
+        document.getElementById('root')
+    )
+</script>
+</html>
