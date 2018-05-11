@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>React-improve-1</title>
+    <!--引用插件，这个插件是可以使用createClass的-->
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+<body>
+    <div id="content">
+
+    </div>
+<script type="text/babel">
+     var StyleSheet={
+         width:100,
+         height:100,
+         backgroundColor:'red',
+         borderRadius:'50%',
+         display:'inline-block'
+     };
+
+     ReactDOM.render(
+         <div style={StyleSheet}></div>,
+         document.getElementById('content')
+
+     )
+
+
+</script>
+</body>
+</html>

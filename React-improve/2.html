@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>React-improve-2</title>
+    <!--引用插件，这个插件是可以使用createClass的-->
+    <script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
+    <script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
+</head>
+<body>
+    <div id="content">
+
+    </div>
+<script type="text/babel">
+    var StyleSheet={
+        width:100,
+        height:100,
+        backgroundColor:'red',
+        borderRadius:'50%',
+        display:'inline-block'
+    };
+      const element=(
+          <div style={StyleSheet}></div>
+      )
+     ReactDOM.render(
+         element,
+         document.getElementById('content')
+
+     )
+
+
+</script>
+</body>
+</html>
