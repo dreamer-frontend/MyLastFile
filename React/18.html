@@ -11,11 +11,11 @@
 <body>
  <div id="root"></div>
 </body>
+<!--内部注释的方法如下，在{}号中注释内容，否则，注释无效；外部注释则不需要添加括号来注释-->
 <script type="text/babel">
     var i=1;
     ReactDOM.render(
-
-        <div>{i==1 ? 'true' : 'false'}</div>,
+        <div>{i==1 ? 'true' : 'false'}{/*HHH*/}</div>,
         document.getElementById('root')
     )
 </script>
