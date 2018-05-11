@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>组件实现相关样式(复合组件的使用)</title>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
+    <script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
+</head>
+<body>
+     <div id="root"></div>
+     <script type="text/babel">
+         var Ha=React.createClass(
+             {
+                 render:function () {
+                     return (
+                         <div>
+                             <p>I am a student.</p>
+                             <span>how are you?</span>
+                         </div>
+
+                     );
+                 }
+             }
+         );
+         var Hb=React.createClass({
+             render:function () {
+                 return (
+                     <div>
+                         <p>我是一名学生</p>
+                         <span>你好吗</span>
+                     </div>
+
+                 )
+             }
+         });
+         var Hc=React.createClass({
+             render:function () {
+                 var style={
+                     display:'block',
+                     border:'1px solid #333',
+                     padding:10,
+                     marginTop:10
+                 }
+                 return (
+                     <div>
+                        <Ha/>
+                        <Hb/>
+                         <div>
+                         <h2>我的图片</h2>
+                         <img src="img/img-3.jpg" style={style}/>
+                         <img src="img/img-4.jpg" style={style}/>
+                         <img src="img/img-5.jpg" style={style}/>
+
+                         </div>
+                     </div>
+                 );
+             }
+         })
+         ReactDOM.render(
+             <Hc/>,
+             document.getElementById('root')
+         )
+     </script>
+</body>
+</html>
