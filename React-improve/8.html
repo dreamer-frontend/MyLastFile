@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>React-improve-8</title>
+    <!--引用插件，这个插件是可以使用createClass的-->
+    <script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
+    <script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
+</head>
+<body>
+    <div id="content">
+
+    </div>
+<script type="text/babel">
+    // 1.封装方法，正确使用key
+    function  ListItem(props) {
+        return <li>{props.value}</li>
+    }
+    function NumberList(props) {
+        const num=props.number;
+        const listItems=num.map(
+            (nums)=>
+                <ListItem key={nums.toString()} value={nums}/>
+        );
+        return (
+            <ul>{listItems}</ul>
+        )
+    }
+    var numbers=[1,2,3,4,5];
+    ReactDOM.render(
+        <NumberList number={numbers}/>,
+        document.getElementById('content')
+    )
+</script>
+</body>
+</html>

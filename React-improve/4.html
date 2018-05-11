@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>React-improve-4</title>
+    <!--引用插件，这个插件是可以使用createClass的-->
+    <script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
+    <script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
+</head>
+<body>
+    <div id="content">
+
+    </div>
+<script type="text/babel">
+    // 第一部分导航栏
+     var Nav=['首页','免费课程','职业路径','实战','猿问','手记','联系我们'];
+     function System(){
+         var total={
+             width:800,
+             height:40,
+             margin:"0 auto",
+             border:'1px solid #666'
+         }
+         var style={
+             fontSize:17,
+             color:'#333333',
+             float:'left',
+             display:'inline-block',
+             paddingTop:10,
+             paddingBottom:10,
+             paddingLeft:15,
+             paddingRight:15,
+             marginLeft:10,
+
+         }
+         return (
+             <div style={total}>
+                 {
+                     Nav.map(function (name) {
+                         return (
+                             <div style={style}>{name}</div>
+                         );
+                     })
+                 }
+
+             </div>,
+             <div>Hello,the world</div>
+
+         );
+     }
+     // 第二部分，图片显示
+     ReactDOM.render(
+          <System/>,
+         document.getElementById('content')
+     )
+
+
+</script>
+</body>
+</html>

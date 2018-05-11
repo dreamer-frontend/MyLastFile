@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>React-improve-5</title>
+    <!--引用插件，这个插件是可以使用createClass的-->
+    <script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
+    <script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
+</head>
+<body>
+    <div id="content">
+
+    </div>
+<script type="text/babel">
+    var totSt={
+        margin:'0 auto',
+        width:400,
+        height:400,
+        border:'1px solid red'
+    }
+    var stylEs={
+        border:'1px solid #666',
+        padding:10,
+        display:'block',
+        margin:'10px auto'
+    }
+    var common={
+        textAlign:'center',
+        fontSize:17,
+        color:'#333'
+    }
+    const showImg=(
+        <div style={totSt}>
+        <div style={common}>两张图片显示效果</div>
+        <img src="img/img-1.jpg" style={stylEs}/>
+        <img src="img/img-2.jpg" style={stylEs}/>
+        </div>
+    )
+     ReactDOM.render(
+         showImg,
+         document.getElementById('content')
+     )
+
+
+</script>
+</body>
+</html>

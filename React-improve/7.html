@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>React-improve-7</title>
+    <!--引用插件，这个插件是可以使用createClass的-->
+    <script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
+    <script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
+</head>
+<body>
+    <div id="content">
+
+    </div>
+<script type="text/babel">
+   // 使用jsx编写一个组件
+    function Hello(props){
+        // 1.首先是给声明的一个num，找集合props中找到nums赋值给num
+        const num=props.nums;
+        // 2.接着获取num数组中的每一个元素
+        const listItems=num.map((num)=>
+            <li>{num}</li>
+        );
+        // 3.返回我们遍历的数组元素
+        return (
+            <ul>
+                {listItems}
+            </ul>
+        )
+    }
+    const num=[1,2,3,4,5];
+
+     ReactDOM.render(
+         <Hello nums={num}/>,
+         document.getElementById('content')
+     )
+
+
+</script>
+</body>
+</html>
