@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>react巩固和理解-5</title>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
+    <script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
+</head>
+<body>
+     <div id="root"></div>
+</body>
+<script type="text/babel">
+   // 1.实现一个按钮切换的事件效果实现
+   class Change extends React.Component{
+       // 2.接着写一下构造方法，进行状态和点击事件的初始化工作
+       constructor(props){
+           super(props);
+           // 初始化当前状态
+           this.state={isChange:true};
+           // 绑定事件
+           this.handleClick=this.handleClick.bind(this);
+       }
+       handleClick(){
+           // 实现状态之间的异步更新，这里使用到的方法是setState方法
+           // 这里使用到的是箭头函数
+           this.setState(localState=>({isChange:!localState.isChange}));
+       }
+       // 这里的按钮点击事件，如果调用的时候，只写handleClick，而不写this，那么当前就会显示该点击事件未定义
+       render(){
+           return (
+               <button onClick={this.handleClick}>
+                   {this.state.isChange ? 'ON' :'OFF'}
+               </button>
+           );
+       }
+   }
+
+  ReactDOM.render(
+      <Change/>,
+      document.getElementById('root')
+  )
+</script>
+</html>

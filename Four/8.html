@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>react巩固和理解-6</title>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
+    <script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
+</head>
+<body>
+     <div id="root"></div>
+</body>
+<script type="text/babel">
+     var Hello=React.createClass({
+         getInitialState:function () {
+           return {value:'Hello'};
+         },
+         handleChange:function (e) {
+           this.setState({value:e.target.value}) ;
+         },
+         render:function () {
+             var value=this.state.value;
+             return (
+                 <div>
+                     <input type="text" value={value} onChange={this.handleChange}></input>
+                     <h4>{value}</h4>
+                 </div>
+             )
+         }
+     });
+     ReactDOM.render(
+         <Hello/>,
+         document.getElementById('root')
+     )
+</script>
+</html>

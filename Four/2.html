@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>react巩固和理解-2</title>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
+    <script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
+</head>
+<body>
+     <div id="root"></div>
+     <div id="root1"></div>
+</body>
+<script type="text/babel">
+    // 1.首先使用less进行样式编写
+    var total={
+        width:800,
+        height:40,
+        margin:"0 auto",
+        border:'1px solid #666'
+    }
+    var style={
+        fontSize:17,
+        color:'#333333',
+        float:'left',
+        display:'inline-block',
+        paddingTop:10,
+        paddingBottom:10,
+        paddingLeft:15,
+        paddingRight:15,
+        marginLeft:10,
+
+    }
+    var Nav=['首页','免费课程','职业路径','实战','猿问','手记','联系我们'];
+    class First extends  React.Component{
+        render(){
+            return (
+                <div style={total}>
+                    {
+                        Nav.map(function (name) {
+                            return (
+                                <div style={style}>{name}</div>
+                            );
+                        })
+                    }
+
+                </div>
+            );
+        }
+    }
+    var totas={
+        width:800,
+        textAlign:'center',
+        margin:'5px auto',
+        fontSize:23,
+        fontFamily:'宋体'
+    }
+    var Imgs={
+        display:'block',
+        width:800,
+        height:480,
+        margin:'10px auto'
+    }
+
+    class Second extends React.Component{
+        render(){
+            return (
+                <div>
+                   <h3 style={totas}>此处显示一张图片</h3>
+                    <img src="img/img-3.jpg" style={Imgs}/>
+                </div>
+
+            );
+        }
+    }
+    ReactDOM.render(
+        <First/>,
+        document.getElementById('root')
+    ),
+    ReactDOM.render(
+        <Second/>,
+        document.getElementById('root1')
+    )
+</script>
+</html>

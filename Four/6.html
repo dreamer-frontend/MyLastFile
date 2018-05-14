@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>react巩固和理解-6</title>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
+    <script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
+</head>
+<body>
+     <div id="root"></div>
+</body>
+<script type="text/babel">
+    // 多个事件共同协作
+    function  Ha(props){
+        return (
+            <h1>Welcome back!</h1>
+        );
+    }
+    function Hb(props){
+        return (
+            <h1>Please confirm it</h1>
+        );
+    }
+    function Common(props){
+        // 声明一个变量，在props的集合中找到isLogin这个属性
+        const isLogin=props.isLogin;
+        if(isLogin){
+            return <Ha/>;
+        }else{
+            return <Hb/>;
+        }
+    }
+  ReactDOM.render(
+      <Common isLogin={false}/>,
+      document.getElementById('root')
+  )
+</script>
+</html>

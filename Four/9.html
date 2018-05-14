@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>react巩固和理解-9</title>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
+    <script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
+</head>
+<body>
+     <div id="root"></div>
+</body>
+<script type="text/babel">
+    // 1.这个点击事件，只能访问一次
+     var Hello=React.createClass({
+         getInitialState:function () {
+             return {value:'hello,girls'};
+         },
+         handleChange:function (e) {
+             this.setState({value:'你好，女孩们'})
+         },
+         render:function () {
+             var value=this.state.value;
+             return (
+                 <div>
+                    <button onClick={this.handleChange}>点我</button>
+                     <h4>{value}</h4>
+                 </div>
+             )
+         }
+     });
+     ReactDOM.render(
+         <Hello/>,
+         document.getElementById('root')
+     )
+</script>
+</html>

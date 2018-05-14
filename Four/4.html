@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>react巩固和理解-4</title>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
+    <script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
+</head>
+<body>
+     <div id="root"></div>
+</body>
+<script type="text/babel">
+    // 1.一个简单的点击事件，效果实现
+  class Ha extends  React.Component{
+      render(){
+          return (
+              <button onClick={handleClick}>Click me</button>
+          );
+      }
+  }
+  function handleClick(e) {
+      e.preventDefault();
+      console.log('this is a title, are you ready?');
+  }
+  ReactDOM.render(
+      <Ha/>,
+      document.getElementById('root')
+  )
+</script>
+</html>

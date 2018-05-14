@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>react巩固和理解-9</title>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
+    <script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
+    <style>
+        .test{
+            width:800px;
+            height:50px;
+            border:1px solid #999;
+            margin:10px auto;
+            color:#333;
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border-radius: 5px;
+            font-family: '宋体';
+            line-height: 50px;
+        }
+    </style>
+</head>
+<body>
+     <div id="root"></div>
+</body>
+<script type="text/babel">
+    // calssName是定义class类名的
+     class Hello extends React.Component{
+         render(){
+             return (
+                 <div className="test" onClick={this.handleClick}>
+                    认真的雪、六月的雨、花火
+                 </div>
+             )
+         }
+         handleClick(){
+             return (
+                 console.log('认真的雪、六月的雨、花火')
+             )
+         }
+     }
+
+     ReactDOM.render(
+         <Hello/>,
+         document.getElementById('root')
+     )
+</script>
+</html>
