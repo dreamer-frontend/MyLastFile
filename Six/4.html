@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>React Pratice-4</title>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
+    <script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
+</head>
+<body>
+     <div id="root"></div>
+<script type="text/babel">
+    var Hello=React.createClass({
+        render:function () {
+            return (
+              <ol>
+                  {
+                      React.Children.map(this.props.children,function (item) {
+                          return (<li>{item}</li>);
+                      })
+                  }
+              </ol>
+                );
+        }
+    })
+
+    ReactDOM.render(
+        <Hello>
+           <h3>我是一名学生</h3>
+            <p>我是一名小学生</p>
+            <h4>我是一名中学生</h4>
+            <span>我是一名高中生</span>
+            <p>我是一名大学生</p>
+        </Hello>,
+        document.getElementById('root')
+    )
+</script>
+</body>
+</html>
