@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>React Pratice-8</title>
+    <title>React Pratice-9</title>
     <script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
     <script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
     <script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
@@ -10,26 +10,37 @@
 <body>
      <div id="root"></div>
 <script type="text/babel">
+    // 数字渐变效果动态实现
     var Hello = React.createClass({
         getInitialState:function(){
-            return {link:false};
+            return {opacity:1.0};
         },
-        handleClick:function(e){
-            this.setState({link: !this.state.link});
+        // 渲染，在装载之后进行使用
+        componentDidMount:function(){
+            var timer=setInterval(function () {
+               // 1.把当前的opacity赋值给opacity
+                var opacity=this.state.opacity;
+                opacity-=0.05;
+                if(opacity<0.1){
+                    opacity=1.0;
+                }
+                // 2.接着对opacity的状态进行必要的更新
+                this.setState({
+                    opacity:opacity
+                })
+
+            }.bind(this),100);
         },
         render:function () {
-            var value=this.state.link?'like':'haven\'t liked';
-            return (
-                <div>
-                    <p onClick={this.handleClick}>
-                       I {value} apple
-                        </p>
+            return(
+                <div style={{opacity:this.state.opacity}}>
+                  Hello,{this.props.name}
                 </div>
-                );
+            );
         }
     })
     ReactDOM.render(
-        <Hello/>,
+        <Hello name="everyone"/>,
         document.getElementById('root')
     )
 </script>
