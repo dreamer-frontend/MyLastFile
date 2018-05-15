@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>React Pratice-7</title>
+    <title>React Pratice-8</title>
     <script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
     <script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
     <script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
@@ -12,17 +12,18 @@
 <script type="text/babel">
     var Hello = React.createClass({
         getInitialState:function(){
-            return {value:'hello'};
+            return {link:false};
         },
-        handleChange:function(e){
-            this.setState({value: e.target.value});
+        handleClick:function(e){
+            this.setState({link: !this.state.link});
         },
         render:function () {
-            var value=this.state.value;
+            var value=this.state.link?'like':'haven\'t liked';
             return (
                 <div>
-                    <input type="text" value={value} onChange={this.handleChange} />
-                    <p>{value}</p>
+                    <p onClick={this.handleClick}>
+                       I {value} apple
+                        </p>
                 </div>
                 );
         }
