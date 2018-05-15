@@ -2,9 +2,76 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>ToodeList</title>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
+    <script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
+    <link rel="stylesheet" href="css/style-1.css">
 </head>
 <body>
-$END$
+     <div id="container"></div>
+     <script type="text/babel">
+         // 总结：建立组件类的时候一般要进行赋值操作
+         // 1.首先定义一个组件类
+         var ToolItems=React.createClass({
+             render:function () {
+                var entries=this.props.entries;
+                function createTasks(item) {
+                   return (
+                       <li>{item.text}</li>
+                   );
+                };
+                var listItems=entries.map(createTasks);
+                return (
+                    <ul className="theList">
+                        <li>{listItems}</li>
+                    </ul>
+                );
+             }
+         });
+         var ToolList=React.createClass({
+             // 2.初始化函数
+             getInitialState:function(){
+                 return {
+                     items:[]
+                 }
+             },
+             addItem:function(e){
+                 // 2.1给文本赋值
+                 var itemArray=this.state.items;
+                 // 2.2给数组添加元素
+                 itemArray.push({
+                         text:this._inputElement.value,
+                         key:Date.now()
+                 });
+                 // 不断更新状态
+                 this.setState({
+                     items:itemArray
+                 });
+                 this._inputElement.value='';
+                 this._inputElement.focus();
+                 e.preventDefault();
+             },
+             // 3.接着给form添加点击事件和按钮提交事件
+             render:function () {
+                 return (
+                     <div className="Main">
+                        <div className="header">
+                            <form onSubmit={this.addItem}>
+                                <input type="text" placeholder="请输入一个数据" ref={(a)=>this._inputElement=a}/>
+                                <button type="submit">添加</button>
+                            </form>
+                        </div>
+                         <ToolItems entries={this.state.items}/>
+                     </div>
+                 )
+             }
+         })
+
+          ReactDOM.render(
+              <ToolList/>,
+              document.getElementById('container')
+          )
+     </script>
 </body>
 </html>
