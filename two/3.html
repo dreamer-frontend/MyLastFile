@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>style-2</title>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
+    <script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
+</head>
+<body>
+<div id="root"></div>
+    <script type="text/babel">
+        // 1,新建两个组件一个大的组件盒子里面包含了一个小的盒子组件，嵌套
+        const Ha=React.createClass({
+            render:function () {
+                var aStyle={
+                    fontSize:72,
+                    color:'#333',
+                    fontWeight:'bold'
+                }
+                return (
+                    <div style={aStyle}>
+                        {this.props.display}
+                    </div>
+                )
+            }
+        });
+        const Hb=React.createClass({
+            getInitialState:function(){
+                return ({
+                        count:0
+                        }
+                );
+            },
+            increase:function(){
+                var localCount=this.state.count+1;
+                this.setState({
+                    count:localCount
+                });
+            },
+           render:function () {
+               var bStyle={
+                   width:300,
+                   height:200,
+                   backgroundColor:'yellow',
+                   borderRadius:6,
+                   textAlign:'center',
+                   padding:10
+               };
+               var btStyle={
+                   width:30,
+                   height:30,
+                   fontWeight:'bold',
+                   color:'#333',
+               }
+               return(
+                   <div style={bStyle}>
+                       <Ha display={this.state.count}/>
+                       <button style={btStyle} onClick={this.increase}>+</button>
+                   </div>
+               )
+           }
+        });
+
+
+        ReactDOM.render(
+             <Hb/>,
+            document.getElementById('root')
+        )
+    </script>
+</body>
+</html>

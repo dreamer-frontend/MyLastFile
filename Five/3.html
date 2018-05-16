@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>React巩固加深-2</title>
+    <title>React巩固加深-3</title>
     <script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
     <script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
     <script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
@@ -12,17 +12,24 @@
     <div id="root"></div>
 </body>
 <script type="text/babel">
-    const arr=['xiaoming','xiaohong','xiaogang'];
+     // 1.首先编写一个组件；
+     class Hello extends  React.Component{
+         static defaultProps={
+             name:'world'
+         }
+         render(){
+             return (
+                 <div>Hello,{this.props.name}</div>
+             )
+         }
+     }
+    // 2.然后指定属性默认值；
+    //  Hello.defaultProps={
+    //      name:'world'
+    //  }
+    // 3.dom中调用组件；
     ReactDOM.render(
-        <div>
-            {
-                arr.map(function (name,index) {
-                    return (
-                        <div key={index}>Hello,{name}</div>
-                    )
-                })
-            }
-        </div>,
+        <Hello/>,
         document.getElementById('root')
     )
 </script>
