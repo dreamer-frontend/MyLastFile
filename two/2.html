@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>style-1</title>
+    <title>style-2</title>
     <script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
     <script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
     <script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
@@ -10,28 +10,61 @@
 <body>
 <div id="root"></div>
     <script type="text/babel">
-        var Ha=React.createClass({
+        // 1,新建两个组件一个大的组件盒子里面包含了一个小的盒子组件，嵌套
+        const Ha=React.createClass({
             render:function () {
-                var style={
+                var aStyle={
+                    fontSize:72,
                     color:'#333',
-                    fontSize:17,
-                    background:this.props.bgColor,
-                    border:'1px solid red',
-                    width:300
+                    fontWeight:'bold'
                 }
                 return (
-                    <div style={style}>
-                      Hello,the world!
+                    <div style={aStyle}>
+                        {this.props.display}
                     </div>
                 )
             }
         });
-       const changeColor=<Ha bgColor="yellow"/>
+        const Hb=React.createClass({
+            getInitialState:function(){
+                return ({
+                        count:0
+                        }
+                );
+            },
+            increase:function(){
+                var localCount=this.state.count+1;
+                this.setState({
+                    count:localCount
+                });
+            },
+           render:function () {
+               var bStyle={
+                   width:300,
+                   height:200,
+                   backgroundColor:'yellow',
+                   borderRadius:6,
+                   textAlign:'center',
+                   padding:10
+               };
+               var btStyle={
+                   width:30,
+                   height:30,
+                   fontWeight:'bold',
+                   color:'#333',
+               }
+               return(
+                   <div style={bStyle}>
+                       <Ha display={this.state.count}/>
+                       <button style={btStyle} onClick={this.increase}>+</button>
+                   </div>
+               )
+           }
+        });
+
 
         ReactDOM.render(
-            <div>
-                {changeColor}
-            </div>,
+             <Hb/>,
             document.getElementById('root')
         )
     </script>

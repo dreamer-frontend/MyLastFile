@@ -2,69 +2,83 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>style-2</title>
+    <title>style-3</title>
     <script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
     <script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
     <script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
+    <style>
+
+        .colorSquar{
+            box-shadow: 0 0 25px 0 #333;
+            width:242px;
+            height: 242px;
+            margin-bottom: 15px;
+        }
+        .colorArea input{
+            padding: 10px;
+            font-size:16px;
+            border:2px solid #888;
+        }
+        .colorArea button{
+            padding: 10px;
+            margin: 10px;
+            background-color: #666;
+            border:2px solid #666;
+            color: #ffffff;
+        }
+        .colorArea button:hover{
+            background-color: #111;
+            border-color: #111;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
 <div id="root"></div>
     <script type="text/babel">
-        // 1,新建两个组件一个大的组件盒子里面包含了一个小的盒子组件，嵌套
-        const Ha=React.createClass({
+         // 1.控件开发
+        var Ha=React.createClass({
+            // 初始化控件,赋值为字符串类型的值
+            getInitialState:function(){
+                return ({
+                    color:'',
+                    bgColor:''
+                });
+            },
+            // 监听控制文本框
+            // 使用setState进行数据的刷新，更改color属性
+            colorValue:function(e){
+                this.setState({
+                    color:e.target.value
+                })
+            },
+            // 修改新的背景颜色
+            setNewColor:function(e){
+                this.setState({
+                    bgColor:this.state.color
+                });
+                e.preventDefault();
+            },
+            // 颜色改变，div就改变
             render:function () {
-                var aStyle={
-                    fontSize:72,
-                    color:'#333',
-                    fontWeight:'bold'
+                // 该控件是实现改变背景色效果
+                var squarStyle={
+                    backgroundColor:this.state.bgColor
                 }
                 return (
-                    <div style={aStyle}>
-                        {this.props.display}
+                    <div className="colorArea">
+                        <div className="colorSquar" style={squarStyle}></div>
+                        <form onSubmit={this.setNewColor}>
+                            <input type="text" placeholder="please enter a color" onChange={this.colorValue}/>
+                            <button type="submit">Show</button>
+                        </form>
+
                     </div>
                 )
             }
         });
-        const Hb=React.createClass({
-            getInitialState:function(){
-                return ({
-                        count:0
-                        }
-                );
-            },
-            increase:function(){
-                var localCount=this.state.count+1;
-                this.setState({
-                    count:localCount
-                });
-            },
-           render:function () {
-               var bStyle={
-                   width:300,
-                   height:200,
-                   backgroundColor:'yellow',
-                   borderRadius:6,
-                   textAlign:'center',
-                   padding:10
-               };
-               var btStyle={
-                   width:30,
-                   height:30,
-                   fontWeight:'bold',
-                   color:'#333',
-               }
-               return(
-                   <div style={bStyle}>
-                       <Ha display={this.state.count}/>
-                       <button style={btStyle} onClick={this.increase}>+</button>
-                   </div>
-               )
-           }
-        });
-
-
         ReactDOM.render(
-             <Hb/>,
+            <Ha/>,
             document.getElementById('root')
         )
     </script>
