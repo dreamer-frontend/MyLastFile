@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>style-11(React条件)</title>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
+    <script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+     class Ha extends React.Component{
+         constructor(props){
+             super(props);
+             this.state={value:''};
+             // 绑定两个事件
+             this.handleChange=this.handleChange.bind(this);
+             this.handleSubmit=this.handleSubmit.bind(this);
+         }
+         handleChange(e){
+             this.setState({value:e.target.value})
+         }
+         handleSubmit(e){
+             alert('hello,boys and girls!'+' '+"你当前输入的是："+this.state.value)
+             e.preventDefault();
+         }
+         render(){
+             return (
+                 <form onSubmit={this.handleSubmit}>
+                   <input type="text" value={this.state.value} onChange={this.handleChange}/>
+                     <button>Submit</button>
+                 </form>
+
+             );
+         }
+     }
+     ReactDOM.render(
+         <Ha/>,
+         document.getElementById('root')
+     )
+</script>
+</body>
+</html>
