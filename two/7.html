@@ -10,23 +10,28 @@
 <body>
     <div id="root"></div>
     <script type="text/babel">
+    function Tick(){
+     class Clock extends  React.Component{
+         constructor(props){
+             super(props);
+             this.state={date:new Date()}
+         }
+         render(){
+             return (
+                 <div>
+                     <h1>显示当前的时间</h1>
+                     <h2>It is {this.state.date.toLocaleTimeString()}</h2>
+                 </div>
+             )
+         }
+     }
+         ReactDOM.render(
+             <Clock/>,
+             document.getElementById('root')
+         )
+     }
+     setInterval(Tick,1000);
 
-       class Ha extends React.Component{
-           constructor(props){
-               super(props);
-               this.state={name:'hello,the world'}
-           }
-           render(){
-               <div>
-                <h1>计时器</h1>,
-                <h2>当前统计的数量count的值为{this.state.name}</h2>
-               </div>
-           }
-       }
-       ReactDOM.render(
-           <Ha/>,
-           document.getElementById('root')
-       )
     </script>
 </body>
 </html>
