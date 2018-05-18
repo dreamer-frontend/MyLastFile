@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>style-4(React条件)</title>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
+    <script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
+    <link rel="stylesheet" href="css/4.css">
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        let App=React.createClass({
+           render:function () {
+               return (
+                   <div className="box">
+                       <h1 className="first">Simple SPA</h1>
+                       <ul className="second">
+                       <li className="active">李白</li>
+                       <li>杜甫</li>
+                       <li>李商隐</li>
+                       </ul>
+                       <div className="third">
+                           <h3>望天门山</h3>
+                           <pre>天门中断楚江开,碧水江流至此回</pre>
+                           <pre>两岸青山相对出,孤帆一片日边来</pre>
+                       </div>
+                   </div>
+               )
+           }
+        });
+      ReactDOM.render(
+          <App />,
+          document.getElementById('root')
+      )
+    </script>
+</body>
+</html>

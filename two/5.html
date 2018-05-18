@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>style-5(React条件)</title>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
+    <script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        let App=React.createClass({
+           getInitialState:function(){
+               return ({value:'hello'});
+           },
+            handleClick:function(e){
+              this.setState({
+                  value:e.target.value
+              })
+            },
+           // onChange是改变当前的文本内容
+           render:function () {
+               var value=this.state.value;
+               return (
+                   <div>
+                   <form>
+                    <input type="text" placeholder="请输入一个完整的信息" value={value} onChange={this.handleClick}/>
+                    <p>{value}</p>
+                    </form>
+                   </div>
+               )
+           }
+        });
+      ReactDOM.render(
+          <App />,
+          document.getElementById('root')
+      )
+    </script>
+</body>
+</html>
