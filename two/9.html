@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>style-9(React条件)</title>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
+    <script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+    function Tick(){
+        class Clock extends  React.Component{
+            constructor(props){
+                super(props);
+                this.state={date:new Date()}
+            }
+            render(){
+                var boxStyle={
+                    border:'1px solid #999',
+                    width:300,
+                    height:300,
+                    margin:'0 auto',
+                    borderRadius:'5px'
+                };
+
+                var childStyle={
+                    fontSize:25,
+                    fontFamily:'宋体',
+                    color:'red',
+                    textAlign:'center',
+                    color:'#f00',
+                    fontWeight:'bold'
+                };
+                var nextChildStyle={
+                     fontSize:18,
+                     textAlign:'center',
+                     color:'#666'
+                };
+                var imgStyle={
+                    display:'block',
+                    width:200,
+                    height:120,
+                    margin:'5px auto',
+                    border:'1px solid #ccc'
+                }
+                return (
+                    <div style={boxStyle}>
+                        <h1   style={childStyle}>显示当前的时间</h1>
+                        <img src="img/img-1.jpg" style={imgStyle}/>
+                        <h2 style={nextChildStyle}>当前时间是: {this.state.date.toLocaleTimeString()}</h2>
+                    </div>
+                )
+            }
+        }
+        ReactDOM.render(
+            <Clock/>,
+            document.getElementById('root')
+        )
+    }
+    setInterval(Tick,1000);
+
+</script>
+</body>
+</html>
