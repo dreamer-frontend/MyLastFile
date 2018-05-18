@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>style-6(React条件)</title>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
+    <script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <div id="root1"></div>
+    <div id="root2"></div>
+    <script type="text/babel">
+        // 1.函数方式实现
+        function Click(){
+            const element=(
+            <div>
+                <h1>1.显示当前的时间为</h1>
+                <h2>It is {new Date().toLocaleTimeString()}</h2>
+            </div>
+            )
+            ReactDOM.render(
+                element,
+                document.getElementById('root')
+            )
+        }
+        setInterval(Click,1000);
+    </script>
+<script type="text/babel">
+    // 2.组件方式实现
+    class Clocks extends React.Component{
+        render(props){
+            return (
+                <div>
+                 <h1>2.当前所处的时间为：</h1>
+                    <h2>This is {this.props.date.toLocaleTimeString()}</h2>
+                </div>
+            )
+        }
+    }
+    function Ha() {
+        ReactDOM.render(
+            <Clocks date={new Date()}/>,
+            document.getElementById('root1')
+        )
+    }
+    setInterval(Ha,1000);
+</script>
+<script type="text/babel">
+    // 3this.state方式进行实现
+    class Clockss extends React.Component{
+        constructor(props){
+            super(props);
+            this.state= {date:new Date()}
+        }
+        render(){
+            return (
+                <div>
+                    <h1>3.时间为：</h1>
+                    <h2>This is {this.state.date.toLocaleTimeString()}</h2>
+                </div>
+            )
+        }
+
+    }
+    ReactDOM.render(
+        <Clockss/>,
+        document.getElementById('root2')
+    )
+
+</script>
+</body>
+</html>
