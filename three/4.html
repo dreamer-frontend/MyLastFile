@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>通过ref创建一个实例，表单与事件</title>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
+    <script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
+</head>
+<body>
+<div id="root3">
+    <!--点击按钮，切换内容一次-->
+</div>
+<script type="text/babel">
+    let Ha=React.createClass({
+        getInitialState:function(){
+            return {value:'hello world'}
+        },
+        handleChange:function(){
+            this.setState({value:'worldwide'})
+        },
+        render:function () {
+            let value=this.state.value;
+            return (
+                <div>
+                    <button onClick={this.handleChange}  >Click me</button>
+                    <h3>{value}</h3>
+                </div>
+            );
+        }
+    });
+    ReactDOM.render(
+        <Ha/>,
+    document.getElementById('root3')
+    )
+</script>
+</body>
+</html>

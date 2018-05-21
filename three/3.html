@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>通过ref创建一个实例，表单与事件</title>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
+    <script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
+</head>
+<body>
+<div id="root4">
+    <!--点击按钮，切换内容一次-->
+</div>
+<!--拆分两个类组件表示-->
+<script type="text/babel">
+    let Hb=React.createClass({
+        render:function () {
+            return (
+                <div>
+                    <button onClick={this.props.changePro}>change</button>
+                    <p>{this.props.myDataPro}</p>
+                </div>
+            )
+        }
+    });
+    let Ha=React.createClass({
+        getInitialState:function(){
+            return {value:'hello world'}
+        },
+        handleChange:function(){
+            this.setState({value:'worldwide'})
+        },
+        render:function () {
+            let value=this.state.value;
+            return (
+                <Hb myDataPro={value} changePro={this.handleChange}/>
+            );
+        }
+    });
+    ReactDOM.render(
+        <Ha/>,
+    document.getElementById('root4')
+    )
+</script>
+
+</body>
+</html>

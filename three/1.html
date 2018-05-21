@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>通过ref创建一个实例，表单与事件</title>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
+    <script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
+</head>
+<body>
+       <div id="root"></div>
+       <script type="text/babel">
+           let Ha=React.createClass({
+               handleClick:function(){
+                   // 获取原生的实例焦点
+                    this.refs.Text.focus();
+               },
+
+               render:function () {
+                  return (
+                      <div>
+                          <input type="text" ref="Text" />
+                          <button onClick={this.handleClick}>点我获取焦点</button>
+                      </div>
+                  )
+               }
+           });
+           ReactDOM.render(
+               <Ha/>,
+                   document.getElementById('root')
+           );
+           
+
+       </script>
+
+       <div id="root1"></div>
+       <script type="text/babel">
+           let Hb=React.createClass({
+               // 初始化函数操作
+               getInitialState:function(){
+                 return {value:'hello world'}
+               },
+               handleClick:function(e){
+                 // 不断更新value的值，也就是目标值，输入的值
+                   this.setState({value:e.target.value});
+               },
+               render:function () {
+                   // 把当前的value值赋值为一个变量，这个变量称为value
+                   let value=this.state.value;
+                   return (
+                       <div>
+                          <input type="text" value={value} onChange={this.handleClick} />
+                           <h3>{value}</h3>
+                       </div>
+                   );
+               }
+           });
+           ReactDOM.render(
+               <Hb/>,
+           document.getElementById('root1')
+           )
+
+       </script>
+
+</body>
+</html>
