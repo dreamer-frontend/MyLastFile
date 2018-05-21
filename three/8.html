@@ -11,19 +11,30 @@
     <div id="root"></div>
 <script type="text/babel">
     let Aa=React.createClass({
+        // 1.默认属性的设置
+        defaultProps:function(){
+            return {
+                common:'hello,the world'
+            }
+        },
+        handleClick:function(){
+          return (console.log('Clicking me is a good choice!'))
+        },
+        // 2.渲染内容的部分
         render(){
             return (
                 <div>
                     <h1>{this.props.name}</h1>
                     <h2>{this.props.age}</h2>
+                    {this.props.common}
+                    <button onClick={this.handleClick}>Click me</button>
                 </div>
-
-            )
+            );
         }
-    })
+    });
     ReactDOM.render(
         <div>
-            <Aa name="This is a title" age="It is 123"/>
+            <Aa name="This is  a title" age="It is 123"/>
             <h2>Hello,the world</h2>
         </div>,
         document.getElementById('root')
