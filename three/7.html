@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title-6</title>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
+    <script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+<script type="text/babel">
+    // 组件嵌套使用
+    let Ha=React.createClass({
+        render:function () {
+            return (
+                <div>
+
+                        {this.props.name}:<input type='text' />
+                        <button>Search</button>
+
+                </div>
+            )
+        }
+    });
+    let Hb=React.createClass({
+        render:function () {
+            return (
+                <div>
+                <h2>Welcome</h2>
+                    <Ha name="title" />
+                    <Ha name="content" />
+                </div>
+            )
+        }
+    })
+    ReactDOM.render(
+        <Hb />,
+        document.getElementById('root')
+    )
+</script>
+</body>
+</html>

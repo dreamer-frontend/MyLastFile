@@ -9,5 +9,25 @@
 </head>
 <body>
     <div id="root"></div>
+    <script type="text/babel">
+        var Ha=React.createClass({
+            getInitialState:function(){
+                 return {like:false}
+            },
+            handleChange:function(){
+              this.setState({like:!this.state.like})
+            },
+            render:function () {
+                let Text=this.state.like? 'like':'dislike';
+                return (
+                    <p onClick={this.handleChange}>You {Text} animals very much</p>
+                );
+            }
+        });
+        ReactDOM.render(
+            <Ha/>,
+            document.getElementById('root')
+        )
+    </script>
 </body>
 </html>

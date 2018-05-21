@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title-5</title>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
+    <script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+<script type="text/babel">
+    var Ha=React.createClass({
+        // 1.首先进行初始化操作
+        getInitialState:function(){
+            return {opacity:1};
+        },
+        // 3.然后是挂载不断更新状态
+        componentDidMount:function(){
+          this.timer=setInterval(function () {
+            let opacity=this.state.opacity;
+            opacity-=.05;
+            if(opacity<0.1){
+                opacity=1;
+            }
+            // 2.接着更新状态
+              this.setState({
+                  opacity:opacity
+              })
+          }.bind(this),100);
+        },
+        // 2.接着加载页面内容
+        render:function () {
+            return (
+                <div style={{opacity:this.state.opacity}}>hello,{this.props.name}</div>
+            )
+        }
+    });
+    ReactDOM.render(
+        <Ha name="world" />,
+        document.getElementById('root')
+    )
+</script>
+</body>
+</html>
