@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Test-8</title>
+    <title>Test-11</title>
     <script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
     <script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
     <script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
@@ -10,6 +10,10 @@
 <body>
 <div id="root"></div>
 <script type="text/babel">
+    /*1.组件嵌套，类组件与继承组件之间联系，
+      2.然后是把dom节点赋值给一个变量，
+      3.然后在render方法函数中调用这个变量就行了
+    */
     const element=(
         <div>
             <h1>Hello,the world</h1>
@@ -17,12 +21,18 @@
             <h3>Hello,the world</h3>
         </div>
     );
-    const label=document.getElementById('root');
+    class Hb extends  React.Component{
+        render(){
+            return element;
+        }
+
+    }
+
+    const dom=document.getElementById('root');
     ReactDOM.render(
-        element,
-        label
+        <Hb/>,
+        dom
     )
 </script>
-
 </body>
 </html>
