@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title-12(mixins的使用测试用例)</title>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
+    <script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+    class Ha extends React.Component{
+        constructor(props){
+            super(props);
+            this.state={Header:false}
+        }
+        changeHeader(){
+            this.setState({Header:!this.state.Header})
+        }
+        render(){
+            // 1.内联样式实现
+            const styleHeader={
+                header:{
+                    backgroundColor:'#aaa',
+                    paddingTop:(this.state.Header)?'5px':'15px',
+                    paddingBottom:(this.state.Header)?'5px':'15px',
+                    border:(this.state.Header)?'5px solid red':'5px solid green',
+                    textAlign:'center'
+                }
+            }
+            return (
+                <div style={styleHeader.header} onClick={this.changeHeader.bind(this)}>
+                    <h1>头部</h1>
+                </div>
+            )
+        }
+    }
+    ReactDOM.render(
+        <Ha/>,
+        document.getElementById('root')
+    )
+
+</script>
+<!--<div id="root1">-->
+
+<!--</div>-->
+<!--<script type="text/babel">-->
+<!--class Hb extends  React.Component{-->
+<!--handleClick(){-->
+<!--return (alert(1243))-->
+<!--}-->
+<!--render(){-->
+<!--return(-->
+<!--<div>-->
+<!--<button onClick={this.handleClick}>点击</button>-->
+<!--</div>-->
+<!--)-->
+<!--}-->
+<!--}-->
+<!--ReactDOM.render(-->
+<!--<Hb/>,-->
+<!--document.getElementById('root1')-->
+<!--)-->
+<!--</script>-->
+
+</body>
+</html>
