@@ -2,9 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title-获取和失去焦点</title>
+    <title>Title-显示一下时间</title>
 </head>
 <body>
-
+<div>
+   <button onclick="Display()">显示时间</button>
+    <p id="demo"></p>
+</div>
+<script>
+    function Display(){
+        var date=new Date();
+        document.getElementById('demo').innerHTML=date.toLocaleTimeString();
+    }
+    setInterval(Display,1000);
+</script>
 </body>
 </html>
