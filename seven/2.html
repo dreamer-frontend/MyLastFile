@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <button  onclick="myFunction()">Click me</button>
+  <p id="content"></p>
+<script>
+    // 注意：父对象所有的变量，对子对象都是可见的，
+    // 子对象的变量，只对子对象可见
+    // 此处的this指代的的是全局变量
+    var name='xiaoming';
+    var add=(function () {
+        var name='xiaogang';
+        return function () {
+            return this.name;
+        }
+    })();
+    function myFunction(){
+        document.getElementById('content').innerHTML=add();
+    }
+
+</script>
+</body>
+</html>

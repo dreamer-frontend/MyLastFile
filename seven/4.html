@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+ <div id="first">
+     <h1>标题</h1>
+     <p>六月的雨</p>
+ </div>
+<script>
+    // 添加一个新的p标签下的文本
+    // 1.首先创建一个节点元素
+    var label=document.createElement('p');
+    var labels=document.createElement('p')
+    // 2.接着创建一个文本节点
+    var Text=document.createTextNode('hello,the world');
+    var Texts=document.createTextNode('你好，世界！')
+    // 3.把文本节点添加到节点元素中，即是父节点上
+    // var lastContent=label.appendChild(Text);
+    label.appendChild(Text);
+    labels.appendChild(Texts)
+    // 4.获取当前需要添加到的div标签元素
+    var par=document.getElementById('first');
+    // 5.把所要添加的内容放到div盒子中
+    //  par.appendChild(lastContent);
+     par.appendChild(label);
+     par.appendChild(labels)
+</script>
+<!--
+删除节点，使用的方法是removeChild方法，首先找到父元素，接着找到需要删除
+的子元素，然后父元素调用相应的方法，删除子元素就可以了。
+-->
+</body>
+</html>

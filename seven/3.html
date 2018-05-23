@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+  <input type="text" id="Text"/>
+  <p id="DaYin"></p>
+  <button  onclick="myFunction()">Click me</button>
+<script>
+  function myFunction() {
+       var x=document.getElementById('Text').value;
+       if(x==''||x==null){
+           alert('请输入你想输入的值！')
+       }else{
+           document.getElementById('DaYin').innerHTML=x;
+       }
+
+  }
+</script>
+</body>
+</html>

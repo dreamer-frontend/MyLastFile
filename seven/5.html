@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title-无刷新评论</title>
+    <script type="text/javascript">
+        function content() {
+          // 1.首先获取标签的节点值
+          var nichName=document.getElementById('ncName').value;
+          // alert(nichName)
+            var Comm=document.getElementById('comment').value;
+
+            // alert(Comm)
+            // 2.接着获取内容需要添加的大标签
+            var Tcon=document.getElementById('table');
+            // 3.接着创建节点元素，创建新行
+            var first=document.createElement('tr');
+
+            // 4.创建昵称文本节点以及显示，创建评论单元格
+            var second=document.createElement('td');
+            second.innerHTML=nichName;
+            first.appendChild(second);
+            // Tcon.appendChild(first);
+
+            // 5.创建文本域节点以及显示
+             var Textarea=document.createElement('td');
+             Textarea.innerHTML=Comm;
+             first.appendChild(Textarea);
+
+             // Tcon.appendChild(first)
+            // 把table中的tr的节点添加到里面,将新行添加到表格中的tbody中，tBodies：一个表格允许有多个tbody
+            Tcon.tBodies[0].appendChild(first);
+        }
+    </script>
+
+</head>
+<body>
+<table id="table">
+    <tbody>
+    </tbody>
+</table>
+昵称：<input id="ncName" type="text" style="display: inline-block"/>
+<textarea id="comment" style="display: block;margin:10px 0 10px 50px"></textarea>
+<input id="input" type="button" value="评论" onclick="content()"/>
+</body>
+</html>

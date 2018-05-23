@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title-获取和失去焦点</title>
+    <script type="text/javascript">
+        function initEvent() {
+            var inputs = document.getElementsByTagName("input");
+            for (var i =0; i < inputs.length; i++) {
+                var input = inputs[i];
+                if (input.type =="text") {
+                    input.onfocus = inputonfocus; //当获得焦点时触发
+                    input.onblur = inputonblurs; //当失去焦点是触发
+                }
+
+            }
+        }
+        function inputonfocus() {
+            this.style.background ="red";
+        }
+        function inputonblurs() {
+            this.style.background ="Green";
+        }
+    </script>
+
+</head>
+<body onload="initEvent()">
+<input type="text"/>
+<input type="text" />
+<input type="text"/>
+<input type="button" value="哈哈"/>
+</body>
+</html>
