@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>简单纯js实现网页tab选项卡切换效果</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        li{
+            list-style: none;
+            float:left;
+            padding:5px 12px;
+            border-right: 1px solid #999;
+        }
+        #tanContainer{
+            width:300px;
+            height:180px;
+            border:1px solid #666666;
+            margin: 0 auto;
+        }
+        #tab{
+            height: 30px;
+            border-bottom: 1px solid #999;
+        }
+
+        #tabCon {
+            clear: both;
+            padding: 5px 10px;
+        }
+        #tabCon div {
+            display:none;
+        }
+        #tabCon div.fdiv {
+            display:block;
+        }
+    </style>
+</head>
+<body>
+<div id="tanContainer">
+    <div id="tab">
+        <ul>
+            <li class="fli">许嵩</li>
+            <li>周杰伦</li>
+            <li>林俊杰</li>
+            <li style="border-right:none;">陈奕迅</li>
+        </ul>
+    </div>
+    <div id="tabCon">
+        <div class="fdiv">断桥残雪、千百度、幻听、想象之中</div>
+        <div>红尘客栈、牛仔很忙、给我一首歌的时间、听妈妈的话</div>
+        <div>被风吹过的夏天、江南、一千年以后</div>
+        <div>十年、K歌之王、浮夸</div>
+    </div>
+</div>
+</body>
+<script>
+   // 1.获取相应的标签
+      var first=document.getElementById('tab').getElementsByTagName('li');
+      var second=document.getElementById('tabCon').getElementsByTagName('div');
+
+      // 2.接着遍历里元素，给每一个元素添加一个点击事件
+      for(var i=0;i<first.length;i++){
+          first[i].onclick=function () {
+              // 改变下面的div内容
+              change(this);
+          }
+      }
+
+      // 3.接下来实现改变内容的这个函数
+      function change(object) {
+          // 让li与div显示内容一一对应
+          for(var i=0;i<first.length;i++){
+              if(first[i]==object){
+                  first[i].className='fli';
+                  second[i].className='fdiv';
+              }else{
+                  first[i].className=' ';
+                  second[i].className=' ';
+              }
+
+          }
+      }
+</script>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <button  onclick="myFunction()">Click me show time</button>
+  <p id="content"></p>
+<script>
+    function myFunction() {
+        var date = new Date();
+        var year = date.getFullYear();
+        var month = date.getMonth() + 1;
+        // getDate是获取当天日期
+        var day = date.getDate();
+        var hours = date.getHours();
+        var minutes = date.getMinutes();
+        var seconds = date.getSeconds();
+        hours = checkTime(hours);
+        minutes = checkTime(minutes);
+        seconds = checkTime(seconds)
+        // 获取星期（通过数组方式获取）
+        var week = date.getDay();
+        var weekDay = new Array();
+        weekDay[0] = '星期日';
+        weekDay[1] = '星期一';
+        weekDay[2] = '星期二';
+        weekDay[3] = '星期三';
+        weekDay[4] = '星期四';
+        weekDay[5] = '星期五';
+        weekDay[6] = '星期六';
+        document.getElementById('content').innerHTML = year + '年' + month + '月' + day + '日' + ',' + weekDay[week] + ',' + hours + ':' + minutes + ':' + seconds;
+    }
+    function checkTime(i){
+        if(i<10){
+            i='0'+i;
+        }
+        return i;
+    }
+    setInterval(myFunction,1000);
+
+</script>
+</body>
+</html>
