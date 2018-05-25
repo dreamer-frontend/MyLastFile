@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #tabs{
+            border:1px solid red;
+            width:640px;
+            margin:0 auto;
+        }
+        #tabs ul{
+            clear: both;
+            overflow: hidden;
+            border-bottom: 1px solid #999;
+        }
+        #tabs ul li{
+            list-style:none;
+            float: left;
+            width: 80px;
+            height:35px;
+            line-height: 35px;
+            color:#333;
+            text-align: center;
+        }
+        #tabs ul li.on{
+            background-color: gray;
+            color: #fff;
+        }
+        #tabs div{
+            width:640px;
+            height:300px;
+            margin: 10px;
+        }
+        .hide{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="tabs">
+        <ul>
+            <li class="on">景点门票</li>
+            <li>跟团游</li>
+            <li>自由行</li>
+            <li>当地游</li>
+            <li>酒店</li>
+            <li>机票</li>
+            <li>火车票</li>
+            <li>邮轮</li>
+        </ul>
+        <div>
+            1111111111111111111111
+        </div>
+        <div class="hide">
+           22222222222222222222222
+        </div>
+        <div class="hide">
+            333333333333333333333
+        </div>
+        <div class="hide">
+            4444444444444444444444
+        </div>
+        <div class="hide">
+            5555555555555555555555555
+        </div>
+        <div class="hide">
+            66666666666666666666666666
+        </div>
+        <div class="hide">
+            77777777777777777777777777777
+        </div>
+        <div class="hide">
+           88888888888888888888888888
+        </div>
+    </div>
+<script>
+    window.onload = function(){
+        var oTab = document.getElementById("tabs");
+        var oUl = oTab.getElementsByTagName("ul")[0];
+        var oLis = oUl.getElementsByTagName("li");
+        var oDivs= oTab.getElementsByTagName("div");
+
+        for(var i= 0;i<oLis.length;i++){
+            oLis[i].index = i;
+            oLis[i].onmouseover= function() {
+                for(var n=0;n<oLis.length;n++){
+                    oLis[n].className = " ";
+                    oDivs[n].className = "hide";
+                }
+                this.className = "on";
+                oDivs[this.index].className = "";
+            }
+        };
+    }
+
+</script>
+
+</body>
+</html>
