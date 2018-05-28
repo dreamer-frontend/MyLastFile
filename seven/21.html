@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title-鼠标的点击事件</title>
+    <style>
+        #text{
+            width: 400px;
+            height: 240px;
+            border: 1px solid #999999;
+            margin: 10px;
+            padding: 5px;
+        }
+        button{
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+
+     <p id="text">
+         fggfdsggsssgsgfsgsgsgs
+         sssssssssssssssssssssssssssssssss
+         cxcxcxcxcxcxcxcxcxcxcxcxcxcxcxcxcxcxcxcxcx
+         xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+         xxxxxxxxxxxxxxxxx
+     </p>
+   <button onclick="show()">点击显示</button>
+   <button onclick="hide()">点击隐藏</button>
+   <button onclick="add()">点击添加</button>
+     <button onclick="change()">点击改变</button>
+<script>
+      function show() {
+          var a=document.getElementById('text');
+          a.style.display='block';
+      }
+      function hide() {
+          var b=document.getElementById('text');
+          b.style.display='none';
+      }
+      function add() {
+          var c=document.getElementById('text');
+          var d=document.createElement('p');
+          var e=document.createTextNode('add a total word!')
+          d.appendChild(e);
+          c.appendChild(d);
+      }
+      function change() {
+          var d=document.getElementById('text');
+          d.style.color='#333';
+          d.style.fontSize='18px';
+      }
+</script>
+</body>
+</html>
