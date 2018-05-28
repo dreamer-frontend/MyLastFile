@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Jquery-添加类和删除类</title>
+    <script src="https://www.imooc.com/static/lib/jquery/1.9.1/jquery.js"></script>
+    <style>
+
+        .sty{
+            color:red;
+            font-size:20px;
+            height:35px;
+            line-height: 35px;
+            width: 200px;
+            height:120px;
+        }
+        .blue{
+            color:blue;
+            font-size:25px;
+
+        }
+    </style>
+</head>
+<body>
+    <p>This is a student!</p>
+    <button id="add">添加类</button>
+    <button id="addToggle">toggle类</button>
+    <button id="remove">删除类</button>
+<script>
+    $(document).ready(function () {
+        $('#add').click(function () {
+            $('p').addClass('sty');
+        })
+        $('#remove').click(function () {
+            $('p').removeClass('sty');
+        })
+        $("#addToggle").click(function(){
+            $("p").toggleClass("blue");
+        });
+    })
+</script>
+</body>
+</html>

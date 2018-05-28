@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Jquery-后代元素（children，find）和同胞元素（siblings，next等）</title>
+    <script src="https://www.imooc.com/static/lib/jquery/1.9.1/jquery.js"></script>
+     <style>
+         .box{
+             border:1px solid red;
+             width: 300px;
+             height:180px;
+             font-size:18px;
+             color:#333;
+         }
+         .BigBox{
+             color:red;
+             border:1px solid blue;
+         }
+     </style>
+</head>
+<body>
+  <h1>案例一</h1>
+  <div id="box">
+      <div>
+          <p>我是一个小小小鸟，怎么飞也飞不高！</p>
+      </div>
+      <h1>哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈</h1>
+      <h2>嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿</h2>
+      <h3>六六六六六六六六六</h3>
+  </div>
+<script>
+
+    // 注意，children,被选元素的所有子元素
+    //  find，返回被选元素的后代元素，一路向下直到最后一个后代
+    // siblings被选元素的所有同胞元素
+    // next，被选元素的下一个同胞元素
+     $(document).ready(function () {
+         $('#box').children().addClass('box');
+         $('#box').find('h2').css('color','red');
+         $('h2').siblings().css('color','green');
+         $('h2').next().css('color','pink');
+     })
+</script>
+</body>
+</html>

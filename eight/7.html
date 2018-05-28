@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Jquery-添加</title>
+    <script src="https://www.imooc.com/static/lib/jquery/1.9.1/jquery.js"></script>
+</head>
+<body>
+<h1>案例一</h1>
+   <p>文本内容一</p>
+   <p1>hello,the world</p1>
+   <p2>hello,the world1111</p2>
+   <button id="btn">append添加</button>
+<button id="btns">prepend添加</button>
+<button id="btnss">before添加</button>
+<button id="btnsss">after添加</button>
+<button id="remove">remove删除</button>
+<button id="empty">empty删除</button>
+   <script>
+       $(document).ready(function () {
+           $('#btn').click(function () {
+               $('p').append('文本内容二')
+           })
+           $('#btns').click(function () {
+               $('p').prepend('文本内容零')
+           })
+           $('#btnss').click(function () {
+               $('p').before('文本内容三')
+           })
+           $('#btnsss').click(function () {
+               $('p').after('文本内容四')
+           })
+           $('#remove').click(function () {
+               $('p1').remove();
+           })
+           $('#empty').click(function () {
+               $('p2').empty();
+           })
+       })
+   </script>
+
+</body>
+</html>

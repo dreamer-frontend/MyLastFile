@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Jquery-查询</title>
+    <script src="https://www.imooc.com/static/lib/jquery/1.9.1/jquery.js"></script>
+</head>
+<body>
+   <div>1</div>
+   <div>2</div>
+   <div>3</div>
+   <div>4</div>
+   <div></div>
+   <script>
+       // 注意，eq是查询第几个
+       $(document).ready(function () {
+         $('div').eq(4).html(
+             '此处是插入的部分'
+         )
+       })
+   </script>
+</body>
+</html>
