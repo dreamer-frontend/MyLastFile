@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title-表格中的属性使用如下</title>
+    <style>
+        button{
+            margin-top:10px;
+        }
+    </style>
+</head>
+<body>
+<h1>1.改变边框的宽度</h1>
+<table id="box" border="1">
+    <tr>
+        <td>A</td>
+        <td>b</td>
+    </tr>
+    <tr>
+        <td>ACC</td>
+        <td>bCC</td>
+    </tr>
+</table>
+<button onclick="change()" >改变边框宽度</button>
+<script>
+   function change() {
+       var a=document.getElementById('box');
+       a.border='10px';
+   }
+</script>
+<h1>2.指定frame</h1>
+<table id="boxs" border="1">
+    <tr>
+        <td>A</td>
+        <td>b</td>
+    </tr>
+    <tr>
+        <td>ACC</td>
+        <td>bCC</td>
+    </tr>
+</table>
+<button onclick="changeUp()" >改变frame上</button>
+<button onclick="changeDown()" >改变frame下</button>
+<script>
+    function changeUp() {
+        document.getElementById('boxs').frame='above';
+    }
+    function changeDown() {
+        document.getElementById('boxs').frame='down';
+    }
+</script>
+<h1>3.为表格指定规则</h1>
+<table id="boxss" border="1">
+    <tr>
+        <td>A</td>
+        <td>b</td>
+    </tr>
+    <tr>
+        <td>ACC</td>
+        <td>bCC</td>
+    </tr>
+</table>
+<button onclick="changeRows()" >行规则</button>
+<button onclick="changeCols()" >类规则</button>
+<script>
+    function changeRows() {
+        document.getElementById('boxss').rules='rows';
+    }
+    function changeCols() {
+        document.getElementById('boxss').rules='cols';
+    }
+</script>
+<h1>4.获取innerHTML属性</h1>
+<table id="box1" border="1">
+    <tr>
+        <td>A</td>
+        <td>b</td>
+    </tr>
+    <tr>
+        <td>ACC</td>
+        <td>bCC</td>
+    </tr>
+</table>
+<button onclick="showText()" >弹出第一行文本</button>
+<button onclick="showFirstText()" >弹出显示第一个文本</button>
+<script>
+    function showText() {
+       alert(document.getElementById('box1').rows[0].innerHTML);
+    }
+    function showFirstText(){
+        alert(document.getElementById('box1').rows[0].cells[0].innerHTML);
+    }
+</script>
+<h1>5.为表格创建一个标题</h1>
+<table id="box2" border="1">
+    <tr>
+        <td>A</td>
+        <td>b</td>
+    </tr>
+    <tr>
+        <td>ACC</td>
+        <td>bCC</td>
+    </tr>
+</table>
+<button onclick="createTitle()" >为表格创建一个标题</button>
+<script>
+    function createTitle() {
+        document.getElementById('box2').createCaption().innerHTML='表格内容如下';
+    }
+</script>
+<h1>6.删除行</h1>
+<table id="box3" border="1">
+    <tr>
+        <td>A</td>
+        <td><input type="button" value="delete" onclick="deleteRows(this)"/> </td>
+    </tr>
+    <tr>
+        <td>B</td>
+        <td><input type="button" value="delete" onclick="deleteRows(this)"/></td>
+    </tr>
+    <tr>
+        <td>C</td>
+        <td><input type="button" value="delete" onclick="deleteRows(this)"/></td>
+    </tr>
+</table>
+<script>
+    function deleteRows(r) {
+        // 1.找到父节点tr
+        var x=r.parentNode.parentNode.rowIndex;
+        var y=document.getElementById('box3');
+        y.deleteRow(x);
+    }
+</script>
+<h1>7.添加行</h1>
+<!--
+    注意，添加表中单元格使用到的是insertCell;
+          改变单元格的内容使用到的是rows[0].cells[0].innerHTML='';
+-->
+<table id="box4" border="1">
+    <tr>
+        <td>A</td>
+        <td>aa</td>
+    </tr>
+    <tr>
+        <td>B</td>
+        <td>bb</td>
+    </tr>
+    <tr>
+        <td>C</td>
+        <td>cc</td>
+    </tr>
+</table>
+<button onclick="insertRows()">添加行</button>
+<button onclick="Align()">对齐</button>
+<script>
+    function insertRows() {
+        // 1.创建行
+        var x= document.getElementById('box4').insertRow(0);
+        // 2.接着插入行
+        var y=x.insertCell(0);
+        var z=x.insertCell(1);
+        // 3.为行添加文本内容
+        y.innerHTML='new Row content1';
+        z.innerHTML='new Row content2';
+    }
+    function Align() {
+        var x=document.getElementById('box4');
+        x.align='center';
+        x.rows[0].cells[0].innerHTML='hello,the world'
+    }
+</script>
+</body>
+</html>

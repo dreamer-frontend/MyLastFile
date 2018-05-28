@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Jquery</title>
+    <script src="https://www.imooc.com/static/lib/jquery/1.9.1/jquery.js"></script>
+</head>
+<body>
+   <div></div>
+   <div id="root"></div>
+   <script>
+       $(document).ready(function () {
+           $('div').html(
+               '你好，小明！'
+           );
+           $('div').css({color:'red'})
+           $('#root').html(
+               'Hello,the worlds'
+           );
+           $('#root').click(function () {
+               $(this).hide();
+           })
+       })
+   </script>
+</body>
+</html>
