@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue.js-8</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+<div id="calculate">
+    <p>输出你的名字为：{{fullName}}</p>
+</div>
+<script>
+// computed是计算属性使用的
+    new Vue({
+        el:'#calculate',
+        data:{
+           firstName:'wang',
+            lastName:'xiao'
+        },
+        computed:{
+            fullName:function () {
+                return this.firstName+''+this.lastName;
+            }
+        }
+    })
+</script>
+</body>
+</html>

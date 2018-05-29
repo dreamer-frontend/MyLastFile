@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue.js-6</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+<div id="calculate">
+    <p>{{msg}}</p>
+    <button @click="handleClick">Reverse</button>
+</div>
+<script>
+// 1.split是分割字符串，join，是连接字符串
+    new Vue({
+        el:'#calculate',
+        data:{
+            msg:'hello,the world'
+        },
+        methods:{
+            handleClick:function () {
+                this.msg=this.msg.split('').reverse().join('');
+            }
+        }
+    })
+</script>
+</body>
+</html>

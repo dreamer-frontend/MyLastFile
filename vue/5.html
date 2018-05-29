@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue.js-5</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+<div id="calculate"><li v-for="Text in text">{{Text.subject}}</li></div>
+<script>
+
+    new Vue({
+        el:'#calculate',
+        data:{
+            text:[
+
+                {subject:"javascript"},
+                {  subject:'html'},
+                {   subject:'C'}
+            ]
+        }
+    })
+</script>
+</body>
+</html>
