@@ -2,33 +2,26 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Vue.js-3</title>
+    <title>Vue.js-4</title>
     <script src="js/vue.js"></script>
 </head>
 <body>
-     <div id="contain">
-         <h1>{{h1}}</h1>
-         <h2>{{h2}}</h2>
-         <h3>{{h3}}</h3>
-         <button @click="handClick()">Click</button>
-     </div>
+<div id="calculate"><buttons></buttons></div>
+<script>
+    // 1.使用vue定义一个组件
+    Vue.component('buttons',{
+        data:function(){
+            return {
+                count:0
+            }
 
-     <script>
-         new Vue({
-             el:'#contain',
-             data:{
-                h1:'This is a title!',
-                h2:'This is a title!',
-                h3:'This is a title!'
-             },
-             methods:{
-                 handClick:function () {
-                  this.h1='This is another title';
-                  this.h2='This is another title';
-                  this.h3='This is another title';
-                 }
-             }
-         })
-     </script>
+        },
+        template:'<button @click="count++">You click me {{count}} times</button>'
+    });
+    new Vue({
+        el:'#calculate'
+    })
+
+</script>
 </body>
 </html>
