@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue.js-2</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+<div id="content">
+    <h1>{{contain}}</h1>
+    <h2>{{contain1}}</h2>
+    <button @click="check()">click</button>
+
+</div>
+
+<script>
+     new Vue({
+         el:'#content',
+         data:{
+           contain:'三门峡崤云信息股份有限公司',
+           contain1:'我是技术部的一名成员'
+         },
+         methods:{
+             check:function () {
+                 alert('12hahaha');
+             }
+         }
+     })
+</script>
+</body>
+</html>

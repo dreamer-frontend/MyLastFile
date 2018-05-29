@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue.js-3</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+     <div id="contain">
+         <h1>{{h1}}</h1>
+         <h2>{{h2}}</h2>
+         <h3>{{h3}}</h3>
+         <button @click="handClick()">Click</button>
+     </div>
+
+     <script>
+         new Vue({
+             el:'#contain',
+             data:{
+                h1:'This is a title!',
+                h2:'This is a title!',
+                h3:'This is a title!'
+             },
+             methods:{
+                 handClick:function () {
+                  this.h1='This is another title';
+                  this.h2='This is another title';
+                  this.h3='This is another title';
+                 }
+             }
+         })
+     </script>
+</body>
+</html>

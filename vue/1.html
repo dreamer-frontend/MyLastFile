@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue.js-1</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+    <div id="content"> </div>
+    <!--template里面可以直接添加内容，不要再引用插值了{{数据名称}}-->
+<script>
+    new Vue({
+        el:'#content',
+        template:'<div><h1>This is a title!</h1><p>It contains many events!</p></div>',
+        // data:{
+        //     datas:'hello,the world,你好，世界，感受大地的温暖！'
+        // }
+     },
+    )
+</script>
+</body>
+</html>
